@@ -6,6 +6,7 @@ exports.professions = async () => {
   try {
     professions = await db.query("SELECT * FROM professions");
   } catch (error) {
+    console.log(error);
     throw new Error("An error has occurred in the db");
   }
 
