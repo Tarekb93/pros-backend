@@ -13,7 +13,7 @@ CREATE TABLE workers(
   id SERIAL PRIMARY KEY,
   fullName text,
   phone integer NOT NULL,
-  professionName text references professions(name),
+   text references professions(name),
   description text,
   avilability text,
   location text,
