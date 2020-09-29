@@ -38,6 +38,23 @@ exports.findByProfessionName = async (name) => {
   return profName.rows;
 };
 
+exports.findByWorkerName = async (name) => {
+  let WorkerName;
+  try {
+    WorkerName = await db.query("SELECT * FROM workers WHERE fullName = $1", [
+      name,
+    ]);
+  } catch (error) {
+    throw new Error("An error has occurred in the db");
+  }
+
+  if (!WorkerName.rows.length) {
+    throw new Error("No Workers by this Name");
+  }
+
+  return WorkerName.rows;
+};
+
 exports.workers = async () => {
   let workers;
   try {

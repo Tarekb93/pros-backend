@@ -23,6 +23,16 @@ exports.fetchProfessionalName = async (req, res) => {
   });
 };
 
+exports.fetchWorkerlName = async (req, res) => {
+  const workerProfile = await workersModel.findByWorkerName(req.params.name);
+  res.status(200).send({
+    data: workerProfile,
+    statusCode: 200,
+    errorMessage: "Page not found",
+    name: req.params.name,
+  });
+};
+
 exports.fetchWorkers = async (req, res) => {
   const workers = await workersModel.workers();
   res.status(200).send({

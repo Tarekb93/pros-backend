@@ -15,6 +15,7 @@ router.get(
   "/workers/profession/:name",
   workersController.fetchProfessionalName
 );
+router.get("/workers/:name", workersController.fetchWorkerlName);
 
 router.get("/professions", professionController.fetchProfessionals);
 router.get("/workers", workersController.fetchWorkers);
